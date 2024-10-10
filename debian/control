@@ -1,15 +1,36 @@
-Source: template-repository
-Section: unknown
+Source: golang-github-armon-go-socks5
+Section: devel
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
+Maintainer: Debian Go Packaging Team <pkg-go-maintainers@lists.alioth.debian.org>
+Uploaders: Christopher Hoskin <mans0954@debian.org>
+Build-Depends: debhelper (>= 11),
+               dh-golang,
+               golang-any,
+               golang-golang-x-net-dev
 Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Homepage: https://github.com/armon/go-socks5
+Vcs-Browser: https://salsa.debian.org/go-team/packages/golang-github-armon-go-socks5.git
+Vcs-Git: https://salsa.debian.org/go-team/packages/golang-github-armon-go-socks5.git
+XS-Go-Import-Path: github.com/armon/go-socks5
+Testsuite: autopkgtest-pkg-go
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: golang-github-armon-go-socks5-dev
+Architecture: all
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         golang-golang-x-net-dev
+Description: SOCKS5 server in Golang
+ Provides the socks5 package that implements a SOCKS5 server
+ (http://en.wikipedia.org/wiki/SOCKS).  SOCKS (Secure Sockets) is used
+ to route traffic between a client and server through an intermediate
+ proxy layer. This can be used to bypass firewalls or NATs.  Feature The
+ package has the following features:
+  * "No Auth" mode
+  * User/Password authentication
+  * Support for the CONNECT command
+  * Rules to do granular filtering of commands
+  * Custom DNS resolution
+  * Unit tests
+ The package lacks the following:
+  * Support for the BIND command
+  * Support for the ASSOCIATE command
